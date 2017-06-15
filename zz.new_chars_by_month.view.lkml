@@ -1,6 +1,8 @@
 view: zz_new_chars_by_month {
   derived_table: {
-    sql: SELECT
+    sql:
+          --for lack of pivoting in BQ, here is my makeshift pivot:
+          SELECT
             month
             ,yesno
           FROM (

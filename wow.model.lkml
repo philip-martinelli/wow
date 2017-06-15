@@ -19,12 +19,12 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 explore: daily_activity_clean {}
 
 explore: chars_clean {
-  join: one_thru_70_summary {
-    relationship: one_to_one
-    sql_on: ${chars_clean.char}=${one_thru_70_summary.char} ;;
-    sql_where: ${one_thru_70_summary.char} is not null ;;
-  }
-  fields: [ALL_FIELDS*]
+#   join: one_thru_70_summary {
+#     relationship: one_to_one
+#     sql_on: ${chars_clean.char}=${one_thru_70_summary.char} ;;
+#     sql_where: ${one_thru_70_summary.char} is not null ;;
+#   }
+#   fields: [ALL_FIELDS*]
 }
 
 explore: char_facts {
@@ -45,6 +45,8 @@ explore: weekly_summary_clean {}
 explore: weekly_summary_dist {}
 
 explore: daily_activity_dist {}
+
+explore: daily_activity_for_lvl_70 {}
 
 explore: zz_new_chars_by_month {}
 

@@ -2,7 +2,7 @@ view: char_facts {
   derived_table: {
     sql: SELECT * FROM ${one_thru_70_summary.SQL_TABLE_NAME}
           UNION ALL
-       SELECT * FROM ${zz_char_facts_minus_levelers.SQL_TABLE_NAME}
+         SELECT * FROM ${zz_char_facts_minus_levelers.SQL_TABLE_NAME}
       ;;
   }
 
