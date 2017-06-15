@@ -8,6 +8,7 @@ view: daily_activity_clean {
   dimension_group: date {
     type: time
     sql: ${TABLE}.date;;
+#     datatype: date
     timeframes: [date,week,month,month_name]
   }
 

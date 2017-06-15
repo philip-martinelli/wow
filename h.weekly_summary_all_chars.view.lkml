@@ -22,7 +22,7 @@ view: weekly_summary_clean {
   }
 
   dimension: week {
-    type: date
+    type: date_week
     sql: ${TABLE}.week ;;
   }
 

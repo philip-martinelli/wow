@@ -35,7 +35,7 @@ view: daily_activity_dist {
         WHEN ${tiered_minutes} = '< 90 minutes' THEN 3
         WHEN ${tiered_minutes} = '< 120 minutes' THEN 4
         WHEN ${tiered_minutes} = '< 180 minutes' THEN 5
-        else 5 END;;
+        else 6 END;;
   }
 
   measure: count {
