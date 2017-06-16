@@ -8,7 +8,7 @@ view: daily_activity_clean {
   dimension_group: date {
     type: time
     sql: ${TABLE}.date;;
-#     datatype: date
+    datatype: date
     timeframes: [date,week,month,month_name]
   }
 
@@ -57,6 +57,26 @@ view: daily_activity_clean {
   measure: sum_minutes {
     type: sum
     sql: ${minutes} ;;
+  }
+
+  measure: median_minutes {
+    type: median
+    sql:  ${minutes};;
+  }
+
+  measure: median_sessions {
+    type: median
+    sql: ${sessions} ;;
+  }
+
+  measure: max_minutes {
+    type: max
+    sql: ${minutes} ;;
+  }
+
+  measure: max_sessions {
+    type: max
+    sql: ${sessions} ;;
   }
 
 }

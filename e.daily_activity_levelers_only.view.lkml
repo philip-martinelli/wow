@@ -15,6 +15,7 @@ view: daily_activity_for_lvl_70 {
   dimension_group: date {
     type: time
     sql: ${TABLE}.date;;
+    datatype: date
     timeframes: [date,week,month,month_name]
   }
 

@@ -16,7 +16,12 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 #   }
 # }
 
-explore: daily_activity_clean {}
+explore: daily_activity_clean {
+  join: chars_clean {
+    sql_on: ${chars_clean.char} = ${daily_activity_clean.char} ;;
+    relationship: many_to_one
+  }
+}
 
 explore: chars_clean {
 #   join: one_thru_70_summary {
@@ -46,8 +51,29 @@ explore: weekly_summary_dist {}
 
 explore: daily_activity_dist {}
 
-explore: daily_activity_for_lvl_70 {}
+explore: daily_activity_for_lvl_70 {
+  join: chars_clean {
+    relationship: one_to_one
+    sql_on: ${chars_clean.char} = ${daily_activity_for_lvl_70.char} ;;
+  }
+}
+
+explore: master {}
 
 explore: zz_new_chars_by_month {}
 
 explore: zz_chars_leveling_funnel {}
+
+explore: k_leveling_funnel_test {}
+
+explore: j_leveling_funnel {}
+
+explore: one_thru_70_summary {
+  join: chars_clean {
+    relationship: one_to_one
+    sql_on: ${chars_clean.char} = ${one_thru_70_summary.char} ;;
+  }
+  }
+
+
+

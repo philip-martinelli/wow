@@ -1,5 +1,5 @@
 view: master {
-  sql_table_name: wow.avatars ;;
+  sql_table_name: wow.master_clean ;;
 
   dimension: _charclass {
     type: string
@@ -25,12 +25,14 @@ view: master {
     type: time
     timeframes: [
       raw,
+      hour_of_day,
       time,
       date,
       week,
       month,
       quarter,
-      year
+      year,
+      day_of_week
     ]
     sql: ${TABLE}._timestamp ;;
   }
@@ -47,7 +49,7 @@ view: master {
 
   measure: count {
     type: count
-    approximate_threshold: 100000
-    drill_fields: []
+#     approximate_threshold: 100000
+#     drill_fields: []
   }
 }
