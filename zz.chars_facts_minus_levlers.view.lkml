@@ -1,6 +1,10 @@
 view: zz_char_facts_minus_levelers {
   derived_table: {
     sql:
+
+    --This derived table captures different levels of aggregation (daily & weekly) for key behavior metrics per character.
+    --NOTE: This particular table evaluates data for the total population EXCEPT the subset of new characters that leveled from 1-70.
+
         SELECT
           a.char
           ,b.minutes,b.sessions

@@ -1,15 +1,10 @@
-view: master {
-  sql_table_name: wow.master_clean ;;
+view: jan_thru_dec_activity_for_lvl_70 {
+  sql_table_name: wow.jan_thru_dec_activity_for_lvl_70 ;;
 
   dimension: compound_primary_key {
     primary_key: yes
     hidden: yes
     sql: CONCAT(CAST(${TABLE}.char as string),'  ',CAST(${TABLE}._timestamp as string)) ;;
-  }
-
-  dimension: _charclass {
-    type: string
-    sql: ${TABLE}._charclass ;;
   }
 
   dimension: _guild {
@@ -22,23 +17,16 @@ view: master {
     sql: ${TABLE}._level ;;
   }
 
-  dimension: _race {
-    type: string
-    sql: ${TABLE}._race ;;
-  }
-
   dimension_group: _timestamp {
     type: time
     timeframes: [
       raw,
-      hour_of_day,
       time,
       date,
       week,
       month,
       quarter,
-      year,
-      day_of_week
+      year
     ]
     sql: ${TABLE}._timestamp ;;
   }
@@ -53,9 +41,23 @@ view: master {
     sql: ${TABLE}.char ;;
   }
 
+  dimension: day_active {
+    type: number
+    sql: ${TABLE}.day_active ;;
+  }
+
+  dimension: diff {
+    type: number
+    sql: ${TABLE}.diff ;;
+  }
+
+  dimension: session {
+    type: number
+    sql: ${TABLE}.session ;;
+  }
+
   measure: count {
     type: count
-#     approximate_threshold: 100000
-#     drill_fields: []
+    drill_fields: []
   }
 }

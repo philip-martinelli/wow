@@ -12,6 +12,11 @@ view: chars_clean {
     sql: CASE WHEN EXISTS (SELECT * FROM wow.new_chars b WHERE b.char = ${char}) THEN 'New' else 'Existing' END;;
   }
 
+  dimension: new_player_lvl_70{
+    type: string
+    sql: CASE WHEN EXISTS (SELECT * FROM wow.new_chars_lvl_70 b WHERE b.char = ${char}) THEN 'Yes' else 'No' END;;
+  }
+
   dimension: _charclass {
     type: string
     sql: ${TABLE}._charclass ;;

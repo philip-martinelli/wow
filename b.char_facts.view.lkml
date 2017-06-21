@@ -1,8 +1,12 @@
 view: char_facts {
   derived_table: {
-    sql: SELECT * FROM ${one_thru_70_summary.SQL_TABLE_NAME}
+    sql: SELECT
+          *
+         FROM ${one_thru_70_summary.SQL_TABLE_NAME}
           UNION ALL
-         SELECT * FROM ${zz_char_facts_minus_levelers.SQL_TABLE_NAME}
+         SELECT
+          *
+         FROM ${zz_char_facts_minus_levelers.SQL_TABLE_NAME}
       ;;
   }
 
@@ -27,6 +31,13 @@ view: char_facts {
     sql: ${TABLE}.minutes ;;
   }
 
+  dimension: total_minutes_tiered {
+    type: tier
+    sql: ${total_minutes} ;;
+    tiers: [0,2500,5000,7500,10000,12500,15000]
+    style: integer
+  }
+
   dimension: total_sessions {
     type: number
     sql: ${TABLE}.sessions ;;
@@ -35,6 +46,13 @@ view: char_facts {
   dimension: total_days_active {
     type: number
     sql: ${TABLE}.days_active ;;
+  }
+
+  dimension: total_days_active_tiered {
+    type: tier
+    sql: ${total_days_active} ;;
+    tiers: [10,20,30,40,50,60]
+    style: integer
   }
 
   dimension: total_weeks_active {

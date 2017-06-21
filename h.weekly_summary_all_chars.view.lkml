@@ -1,5 +1,12 @@
 view: weekly_summary_clean {
+
   sql_table_name: wow.weekly_summary_clean ;;
+
+  dimension: compound_primary_key {
+    primary_key: yes
+    hidden: yes
+    sql: CONCAT(CAST(${TABLE}.char as string),'  ',CAST(${TABLE}.week as string)) ;;
+  }
 
   dimension: char {
     type: number
@@ -29,7 +36,6 @@ view: weekly_summary_clean {
   measure: count {
     type: count
   }
-
 
   measure: avg_days_active {
     type: average

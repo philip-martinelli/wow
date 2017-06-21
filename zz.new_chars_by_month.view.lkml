@@ -1,7 +1,10 @@
 view: zz_new_chars_by_month {
   derived_table: {
     sql:
-          --for lack of pivoting in BQ, here is my makeshift pivot:
+          --This summary table counts the number of new/existing character per month
+          --NOTE 1: Characters are only counted as new ONCE.  After their first month, they are counted as existing for subsequent months.
+          --NOTE 2: I added special logic for the Death Knight class since only existing characters can play as Death Knights and their first month as that class is not their first month as that character.
+
            SELECT
             class
             ,month

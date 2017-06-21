@@ -1,6 +1,9 @@
 view: zz_chars_leveling_funnel {
   derived_table: {
     sql:
+
+    --This is my first attempt at creating results that chart the drop-off rate through every 10 levels.  I was later shown how to do this with table calcs.
+
     WITH funnel as (SELECT
                 total,ten,twenty,thirty,fourty,fifty,sixty,seventy
                 FROM

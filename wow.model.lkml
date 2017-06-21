@@ -75,5 +75,17 @@ explore: one_thru_70_summary {
   }
   }
 
-
-
+explore: zones {
+  label: "Zones-Levelers"
+  join: jan_thru_dec_activity_for_lvl_70 {
+    sql_on: ${jan_thru_dec_activity_for_lvl_70._zone} = ${zones.zone_name} ;;
+    relationship: one_to_many
+    type: left_outer
+  }
+  join: chars_clean {
+    sql_on: ${chars_clean.char} = ${jan_thru_dec_activity_for_lvl_70.char} ;;
+    relationship: many_to_one
+    type: left_outer
+    fields: [chars_clean.new_player,chars_clean.new_player_lvl_70,chars_clean.count]
+  }
+}

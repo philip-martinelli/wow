@@ -1,5 +1,12 @@
 view: daily_activity_clean {
 
+  dimension: compound_primary_key {
+    primary_key: yes
+    hidden: yes
+    sql: CONCAT(CAST(${TABLE}.char as string),'  ',CAST(${TABLE}.date as string)) ;;
+  }
+
+
   dimension: char {
     type: string
     sql: ${TABLE}.char ;;

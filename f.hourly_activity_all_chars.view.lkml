@@ -1,6 +1,12 @@
 view: hourly_activity_clean {
   sql_table_name: wow.hourly_activity_clean ;;
 
+  dimension: compound_primary_key {
+    primary_key: yes
+    hidden: yes
+    sql: CONCAT(CAST(${TABLE}.char as string),'  ',CAST(${TABLE}.hour as string)) ;;
+  }
+
   dimension: char {
     type: number
     sql: ${TABLE}.char ;;

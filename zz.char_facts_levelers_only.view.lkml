@@ -1,6 +1,12 @@
 view: one_thru_70_summary {
   derived_table: {
     sql:
+
+    --This derived table captures different levels of aggregation (daily & weekly) for key behavior metrics per character.
+    --NOTE 1: This particular table evaluates data for the subset of new characters that leveled from 1-70.
+    --NOTE 2: The extra subqueries I have in the Joined view 'C' are used to clean a small number of users that had wacky data from the results.
+    --NOTE 3: I only wanted to look at time spent leveling, so I removed all timestamps after the first lvl 70 timestamp.
+
         SELECT
           a.char
           ,b.minutes,b.sessions
