@@ -11,6 +11,14 @@ SELECT * FROM wow.leveling_funnel_p2 ;;
     sql: ${TABLE}.class ;;
   }
 
+dimension: class_parameter {
+  type: string
+  sql:
+  CASE WHEN ${class} = {% parameter class_parameter %} THEN ${class} ELSE 'All Classes' END;;
+}
+
+
+
   dimension: level {
     type: string
     sql: ${TABLE}.level;;
@@ -51,4 +59,4 @@ SELECT * FROM wow.leveling_funnel_p2 ;;
     sql: ${TABLE}.cnt ;;
   }
 
-  }
+}

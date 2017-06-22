@@ -86,6 +86,6 @@ explore: zones {
     sql_on: ${chars_clean.char} = ${jan_thru_dec_activity_for_lvl_70.char} ;;
     relationship: many_to_one
     type: left_outer
-    fields: [chars_clean.new_player,chars_clean.new_player_lvl_70,chars_clean.count]
+    fields: [chars_clean.new_player,chars_clean.new_player_lvl_70,chars_clean.count,chars_clean._charclass]
   }
 }
