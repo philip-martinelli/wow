@@ -89,3 +89,6 @@ explore: zones {
     fields: [chars_clean.new_player,chars_clean.new_player_lvl_70,chars_clean.count,chars_clean._charclass]
   }
 }
+
+
+explore: n_master_activity_levelers_only_endgame {}

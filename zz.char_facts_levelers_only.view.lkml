@@ -9,7 +9,8 @@ view: one_thru_70_summary {
 
         SELECT
           a.char
-          ,b.minutes,b.sessions
+          ,b.minutes
+          ,b.sessions
           ,b.days_active
           ,c.weeks_active
           ,c.avg_days_active_per_week
