@@ -94,3 +94,10 @@ explore: zones {
 explore: n_master_activity_levelers_only_endgame {}
 explore: o_char_facts_levelers_only_end_game {}
 explore: zz_char_facts_minus_levelers_end_game{}
+explore: char_facts_endgame {
+  join: chars_clean {
+    relationship: one_to_one
+    sql_on: ${chars_clean.char} = ${char_facts_endgame.char} ;;
+    fields: [chars_clean._charclass,chars_clean._race]
+  }
+}

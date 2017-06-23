@@ -14,9 +14,9 @@ view: o_char_facts_levelers_only_end_game {
               SELECT
                 char
                 ,DATE(_timestamp) as date
-                ,SUM(minutes) as minutes
+                ,SUM(diff) as minutes
                 ,SUM(session) as sessions
-                ,SUM(days_active) as days_active
+                ,SUM(day_active) as days_active
               FROM ${n_master_activity_levelers_only_endgame.SQL_TABLE_NAME}
               GROUP BY 1,2
               ) b

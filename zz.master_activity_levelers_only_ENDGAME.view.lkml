@@ -71,47 +71,47 @@ view: n_master_activity_levelers_only_endgame {
           ;;
           persist_for: "24 hours"
          }
-
-  dimension: char {
-    type: string
-    sql: ${TABLE}.char ;;
-  }
-
-  dimension: level {
-    type: number
-    sql: ${TABLE}._level ;;
-  }
-
-  dimension: zone {
-    type: string
-    sql: ${TABLE}._zone ;;
-  }
-
-  dimension: guild {
-    type: number
-    sql: ${TABLE}._guild ;;
-  }
-
-  dimension_group: _timestamp {
-    type: time
-    sql: ${TABLE}._timestamp;;
-    timeframes: [month,week,date]
-  }
-
-  measure:  sum_diff {
-    type: sum
-    sql: ${TABLE}.diff ;;
-  }
-
-  measure:  sum_session {
-    type: sum
-    sql: ${TABLE}.session ;;
-  }
-
-  measure:  sum_day_active {
-    type: sum
-    sql: ${TABLE}.day_active ;;
-  }
+#
+#   dimension: char {
+#     type: string
+#     sql: ${TABLE}.char ;;
+#   }
+#
+#   dimension: level {
+#     type: number
+#     sql: ${TABLE}._level ;;
+#   }
+#
+#   dimension: zone {
+#     type: string
+#     sql: ${TABLE}._zone ;;
+#   }
+#
+#   dimension: guild {
+#     type: number
+#     sql: ${TABLE}._guild ;;
+#   }
+#
+#   dimension_group: _timestamp {
+#     type: time
+#     sql: ${TABLE}._timestamp;;
+#     timeframes: [month,week,date]
+#   }
+#
+#   measure:  sum_diff {
+#     type: sum
+#     sql: ${TABLE}.diff ;;
+#   }
+#
+#   measure:  sum_session {
+#     type: sum
+#     sql: ${TABLE}.session ;;
+#   }
+#
+#   measure:  sum_day_active {
+#     type: sum
+#     sql: ${TABLE}.day_active ;;
+#   }
 
 
 }

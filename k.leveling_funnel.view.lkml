@@ -1,9 +1,13 @@
 view: k_leveling_funnel_test {
 
   derived_table: {
-    sql: SELECT * FROM wow.leveling_funnel_p1
-UNION ALL
-SELECT * FROM wow.leveling_funnel_p2 ;;
+    sql: SELECT
+          *
+         FROM wow.leveling_funnel_p1
+          UNION ALL
+         SELECT
+          *
+         FROM wow.leveling_funnel_p2 ;;
   }
 
   dimension: class {
