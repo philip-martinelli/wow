@@ -29,7 +29,7 @@ Here are a few questions that inspired me to model the data like I did:
 - How much of the total population fits the hard-core, South Park stereotype?
 - Do any classes fall out of favor and become less popular throughout the year?
 
-### Leveling
+### Leveling and Endgame
 The third subject I looked at was the subpopulation of new characters that started playing and reached level 70 the same year.  I define new characters as characters whose first recorded timestamp has a corresponding level of 1.  I particularly wanted to know how (if at all) their behavior varied by class, how they compared against the total populaton, and how their behavior changed from leveling to endgame.  I define leveling data as data from the first timestamp of level 1 to the first timestamp of level 70, and I define endgame data as data from the first timestamp of level 70 to the last timestamp of level 70.
 
 In the mmorpg (massive multiplayer online role playing game) genre, the differences (and balance) between engaging leveling and endgame experiences are important subjects. There needs to be enough fun content to shuttle players through “the grind” from level 1 to 70, but there also needs to be a robust endgame experience to keep them happy without the motivating factor of reaching the next level.  From a subscription-based business perspective, characters can stop paying at any given time, so it's vital that they are motivated to log back in again, and again, and again, and again.
