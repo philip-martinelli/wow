@@ -21,6 +21,7 @@ explore: daily_activity_clean {
   join: chars_clean {
     sql_on: ${chars_clean.char} = ${daily_activity_clean.char} ;;
     relationship: many_to_one
+    fields: [chars_clean._charclass,chars_clean._race,chars_clean.new_player,chars_clean.new_player_lvl_70]
   }
 }
 
@@ -39,6 +40,7 @@ explore: char_facts {
   join: chars_clean {
     relationship: one_to_one
     sql_on: ${chars_clean.char} = ${char_facts.char} ;;
+    fields: [chars_clean._charclass,chars_clean._race,chars_clean.new_player,chars_clean.new_player_lvl_70]
   }
 }
 
@@ -67,6 +69,7 @@ explore: daily_activity_for_lvl_70 {
   join: chars_clean {
     relationship: one_to_one
     sql_on: ${chars_clean.char} = ${daily_activity_for_lvl_70.char} ;;
+    fields: [chars_clean._charclass,chars_clean._race,chars_clean.new_player,chars_clean.new_player_lvl_70]
   }
 }
 
@@ -91,6 +94,7 @@ explore: one_thru_70_summary {
   join: chars_clean {
     relationship: one_to_one
     sql_on: ${chars_clean.char} = ${one_thru_70_summary.char} ;;
+    fields: [chars_clean._charclass,chars_clean._race,chars_clean.new_player,chars_clean.new_player_lvl_70]
   }
   }
 
