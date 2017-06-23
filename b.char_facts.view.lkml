@@ -1,12 +1,40 @@
 view: char_facts {
   derived_table: {
-    sql: SELECT
-          *
-         FROM ${one_thru_70_summary.SQL_TABLE_NAME}
-          UNION ALL
-         SELECT
-          *
-         FROM ${zz_char_facts_minus_levelers.SQL_TABLE_NAME}
+    sql:
+
+    --This derived table captures different levels of aggregation (daily & weekly) for key behavior metrics per character.
+    --NOTE: This particular table evaluates data for the TOTAL (new and existing character) population.
+
+        SELECT
+          a.char
+          ,b.minutes
+          ,b.sessions
+          ,b.days_active
+          ,c.weeks_active
+          ,c.avg_days_active_per_week
+          ,c.avg_minutes_per_week
+          ,(SELECT min(b._timestamp) FROM wow.master_clean b WHERE a.char = b.char) as first_active
+        FROM wow.chars_clean a
+        JOIN (
+              SELECT
+                char
+                ,SUM(minutes) as minutes
+                ,SUM(session) as sessions
+                ,SUM(days_active) as days_active
+              FROM wow.daily_activity_clean
+              GROUP BY 1
+              ) b
+          ON a.char = b.char
+        JOIN (SELECT
+                char
+                ,COUNT(week) as weeks_active
+                ,ROUND(AVG(days_active),1) as avg_days_active_per_week
+                ,ROUND(AVG(minutes),1) as avg_minutes_per_week
+              FROM wow.weekly_summary_clean
+              GROUP BY 1
+              ) c
+          ON b.char = c.char
+        ORDER BY 1
       ;;
   }
 

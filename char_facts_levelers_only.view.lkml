@@ -96,6 +96,9 @@ view: one_thru_70_summary {
   }
 
 
+
+
+
   measure: avg_minutes {
     type: average
     sql:  ${total_minutes};;
@@ -116,4 +119,26 @@ view: one_thru_70_summary {
     sql: ${avg_days_active_per_week} ;;
 
   }
+
+  measure: count {
+    type: count
+  }
+
+
+
+  dimension: total_minutes_tiered {
+    type: tier
+    sql: ${total_minutes} ;;
+    tiers: [0,2500,5000,7500,10000,12500,15000]
+    style: integer
+  }
+
+  dimension: total_days_active_tiered {
+    type: tier
+    sql: ${total_days_active} ;;
+    tiers: [10,20,30,40,50,60]
+    style: integer
+  }
+
+
 }

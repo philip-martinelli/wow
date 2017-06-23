@@ -92,3 +92,5 @@ explore: zones {
 
 
 explore: n_master_activity_levelers_only_endgame {}
+explore: o_char_facts_levelers_only_end_game {}
+explore: zz_char_facts_minus_levelers_end_game{}
