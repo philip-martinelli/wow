@@ -17,6 +17,7 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 # }
 
 explore: daily_activity_clean {
+  label: "All Characters: Daily Summary"
   join: chars_clean {
     sql_on: ${chars_clean.char} = ${daily_activity_clean.char} ;;
     relationship: many_to_one
@@ -24,6 +25,7 @@ explore: daily_activity_clean {
 }
 
 explore: chars_clean {
+  label: "All Characters: Characters"
 #   join: one_thru_70_summary {
 #     relationship: one_to_one
 #     sql_on: ${chars_clean.char}=${one_thru_70_summary.char} ;;
@@ -33,6 +35,7 @@ explore: chars_clean {
 }
 
 explore: char_facts {
+  label: "All Characters: Character Facts"
   join: chars_clean {
     relationship: one_to_one
     sql_on: ${chars_clean.char} = ${char_facts.char} ;;
@@ -43,32 +46,48 @@ explore: char_facts {
 #
 # explore: zones {}
 
-explore: hourly_activity_clean {}
+explore: hourly_activity_clean {
+  label: "All Characters: Hourly Summary"
+}
 
-explore: weekly_summary_clean {}
+explore: weekly_summary_clean {
+  label: "All Characters: Weekly Summary"
+}
 
-explore: weekly_summary_dist {}
+explore: weekly_summary_dist {
+  label: "All Characters: Weekly Summary - Distribution"
+}
 
-explore: daily_activity_dist {}
+explore: daily_activity_dist {
+  label: "All Characters: Daily Summary - Distribution"
+}
 
 explore: daily_activity_for_lvl_70 {
+  label: "Levelers Only: Daily Summary"
   join: chars_clean {
     relationship: one_to_one
     sql_on: ${chars_clean.char} = ${daily_activity_for_lvl_70.char} ;;
   }
 }
 
-explore: master {}
+explore: master {
+  label: "Master View - All Activity"
+}
 
-explore: zz_new_chars_by_month {}
+explore: zz_new_chars_by_month {
+  label: "All Characters: New Characters per Month"
+}
 
-explore: zz_chars_leveling_funnel {}
+# explore: zz_chars_leveling_funnel {}
 
-explore: k_leveling_funnel_test {}
+explore: k_leveling_funnel_test {
+  label: "Levelers Only: Leveling Funnel"
+}
 
-explore: j_leveling_funnel {}
+# explore: j_leveling_funnel {}
 
 explore: one_thru_70_summary {
+  label: "Levelers Only: Character Facts"
   join: chars_clean {
     relationship: one_to_one
     sql_on: ${chars_clean.char} = ${one_thru_70_summary.char} ;;
@@ -76,7 +95,7 @@ explore: one_thru_70_summary {
   }
 
 explore: zones {
-  label: "Zones-Levelers"
+  label: "Levelers Only: Zones"
   join: jan_thru_dec_activity_for_lvl_70 {
     sql_on: ${jan_thru_dec_activity_for_lvl_70._zone} = ${zones.zone_name} ;;
     relationship: one_to_many
@@ -91,10 +110,11 @@ explore: zones {
 }
 
 
-explore: n_master_activity_levelers_only_endgame {}
-explore: o_char_facts_levelers_only_end_game {}
-explore: zz_char_facts_minus_levelers_end_game{}
+# explore: n_master_activity_levelers_only_endgame {}
+# explore: o_char_facts_levelers_only_end_game {}
+# explore: zz_char_facts_minus_levelers_end_game{}
 explore: char_facts_endgame {
+  label: "All Characters: Character Facts - Endgame"
   join: chars_clean {
     relationship: one_to_one
     sql_on: ${chars_clean.char} = ${char_facts_endgame.char} ;;
