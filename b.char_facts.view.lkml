@@ -1,4 +1,5 @@
 view: char_facts {
+  view_label: "Character Facts"
   derived_table: {
     sql:
 
@@ -39,6 +40,7 @@ view: char_facts {
   }
 
   dimension: char {
+    label: "Character"
     type: string
     sql: ${TABLE}.char ;;
     primary_key: yes

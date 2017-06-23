@@ -1,5 +1,5 @@
 view: weekly_summary_dist {
-
+view_label: "Weekly Activity"
   derived_table: {
     sql: SELECT
           char
@@ -13,6 +13,7 @@ view: weekly_summary_dist {
   }
 
   dimension: char {
+    label: "Character"
     type: string
     sql: ${TABLE}.char ;;
     primary_key: yes

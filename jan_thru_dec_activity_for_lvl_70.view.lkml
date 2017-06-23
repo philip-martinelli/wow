@@ -1,4 +1,5 @@
 view: jan_thru_dec_activity_for_lvl_70 {
+  view_label: "Leveling Activity"
   sql_table_name: wow.jan_thru_dec_activity_for_lvl_70 ;;
 
   dimension: compound_primary_key {
@@ -8,11 +9,13 @@ view: jan_thru_dec_activity_for_lvl_70 {
   }
 
   dimension: _guild {
+    label: "Guild"
     type: number
     sql: ${TABLE}._guild ;;
   }
 
   dimension: _level {
+    label: "Level"
     type: number
     sql: ${TABLE}._level ;;
   }
@@ -32,11 +35,13 @@ view: jan_thru_dec_activity_for_lvl_70 {
   }
 
   dimension: _zone {
+    label: "Zone"
     type: string
     sql: ${TABLE}._zone ;;
   }
 
   dimension: char {
+    label: "Character"
     type: number
     sql: ${TABLE}.char ;;
   }

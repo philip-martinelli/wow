@@ -1,4 +1,5 @@
 view: hourly_activity_clean {
+  view_label: "Hourly Activity"
   sql_table_name: wow.hourly_activity_clean ;;
 
   dimension: compound_primary_key {
@@ -8,11 +9,13 @@ view: hourly_activity_clean {
   }
 
   dimension: char {
+    label: "Character"
     type: number
     sql: ${TABLE}.char ;;
   }
 
   dimension: timestamp_cnt {
+    label: "Timestamps"
     type: number
     sql: ${TABLE}.f0_ ;;
   }
@@ -24,7 +27,7 @@ view: hourly_activity_clean {
   }
 
   measure: sum {
-    label: "Recorded Timestamps"
+    label: "Sum of Timestamps"
     type: sum
     sql: ${timestamp_cnt} ;;
   }

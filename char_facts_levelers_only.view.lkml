@@ -1,4 +1,5 @@
 view: one_thru_70_summary {
+  view_label: "Character Facts"
   derived_table: {
     sql:
 
@@ -60,6 +61,7 @@ view: one_thru_70_summary {
   }
 
   dimension: char {
+    label: "Character"
     type: string
     sql: ${TABLE}.char ;;
     primary_key: yes
@@ -115,6 +117,7 @@ view: one_thru_70_summary {
   }
 
   measure: total_avg_days_active_per_week {
+    label: "Avg of avg days active per week"
     type: average
     sql: ${avg_days_active_per_week} ;;
 

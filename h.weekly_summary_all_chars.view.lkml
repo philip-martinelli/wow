@@ -1,5 +1,5 @@
 view: weekly_summary_clean {
-
+view_label: "Weekly Activity"
   sql_table_name: wow.weekly_summary_clean ;;
 
   dimension: compound_primary_key {
@@ -9,6 +9,7 @@ view: weekly_summary_clean {
   }
 
   dimension: char {
+    label: "Character"
     type: number
     sql: ${TABLE}.char ;;
   }

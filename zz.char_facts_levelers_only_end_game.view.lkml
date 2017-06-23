@@ -1,4 +1,5 @@
 view: o_char_facts_levelers_only_end_game {
+  view_label: "Character Facts"
   derived_table: {
     sql:
     SELECT
@@ -47,6 +48,7 @@ view: o_char_facts_levelers_only_end_game {
 
 
   dimension: char {
+    label: "Character"
     type: string
     sql: ${TABLE}.char ;;
     primary_key: yes
@@ -99,6 +101,7 @@ view: o_char_facts_levelers_only_end_game {
   }
 
   measure: total_avg_days_active_per_week {
+    label: "Avg of avg days active per week"
     type: average
     sql: ${avg_days_active_per_week} ;;
 

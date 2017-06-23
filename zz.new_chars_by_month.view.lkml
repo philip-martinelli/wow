@@ -1,4 +1,5 @@
 view: zz_new_chars_by_month {
+  view_label: "New Characters per Month"
   derived_table: {
     sql:
           --This summary table counts the number of new/existing character per month

@@ -1,7 +1,9 @@
 view: chars_clean {
+  view_label: "Characters"
   sql_table_name: wow.chars_clean ;;
 
   dimension: char {
+    label: "Character"
     type: number
     sql: ${TABLE}.char ;;
     primary_key: yes

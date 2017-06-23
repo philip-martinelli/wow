@@ -1,5 +1,5 @@
 view: daily_activity_clean {
-
+view_label: "Daily Activity"
   dimension: compound_primary_key {
     primary_key: yes
     hidden: yes
@@ -8,6 +8,7 @@ view: daily_activity_clean {
 
 
   dimension: char {
+    label: "Character"
     type: string
     sql: ${TABLE}.char ;;
   }

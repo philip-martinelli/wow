@@ -1,5 +1,5 @@
 view: daily_activity_dist {
-
+view_label: "Daily Activity"
   derived_table: {
     sql: select char, AVG(minutes) as minutes
           FROM wow.daily_activity_clean
@@ -8,6 +8,7 @@ view: daily_activity_dist {
   }
 
   dimension: char {
+    label: "Character"
     type: string
     sql: ${TABLE}.char ;;
   }

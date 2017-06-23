@@ -1,4 +1,5 @@
 view: char_facts_endgame {
+  view_label: "Character Facts"
 derived_table: {
   sql:
       SELECT
@@ -14,12 +15,14 @@ derived_table: {
 }
 
   dimension: char {
+    label: "Character"
     type: string
     sql: ${TABLE}.char ;;
     primary_key: yes
   }
 
   dimension: New_or_Existing {
+    label: "New or Existing?"
     type: string
     sql: ${TABLE}.New_or_Existing;;
   }
@@ -70,6 +73,7 @@ derived_table: {
   }
 
   measure: total_avg_days_active_per_week {
+    label: "Avg of avg days active per week"
     type: average
     sql: ${avg_days_active_per_week} ;;
 

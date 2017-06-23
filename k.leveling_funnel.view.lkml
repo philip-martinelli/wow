@@ -1,5 +1,5 @@
 view: k_leveling_funnel_test {
-
+view_label: "Leveling Funnel"
   derived_table: {
     sql: SELECT
           *

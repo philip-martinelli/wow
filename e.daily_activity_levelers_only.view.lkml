@@ -1,4 +1,5 @@
 view: daily_activity_for_lvl_70 {
+  view_label: "Daily Activity"
   sql_table_name: wow.daily_activity_for_lvl_70 ;;
 
   dimension: compound_primary_key {
@@ -8,6 +9,7 @@ view: daily_activity_for_lvl_70 {
   }
 
   dimension: char {
+    label: "Character"
     type: number
     sql: ${TABLE}.char ;;
   }
