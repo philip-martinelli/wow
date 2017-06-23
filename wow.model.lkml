@@ -3,18 +3,9 @@ connection: "bq_test_db"
 include: "*.view.lkml"         # include all views in this project
 include: "*.dashboard.lookml"  # include all dashboards in this project
 
-# # Select the views that should be a part of this model,
-# # and define the joins that connect them together.
-#
-# explore: order_items {
-#   join: orders {
-#     sql_on: ${orders.id} = ${order_items.order_id}
-#   }
-#
-#   join: users {
-#     sql_on: ${users.id} = ${orders.user_id}
-#   }
-# }
+datagroup: default {
+  max_cache_age: "72 hours"
+}
 
 explore: daily_activity_clean {
   label: "All Characters: Daily Summary"
@@ -27,12 +18,6 @@ explore: daily_activity_clean {
 
 explore: chars_clean {
   label: "All Characters: Characters"
-#   join: one_thru_70_summary {
-#     relationship: one_to_one
-#     sql_on: ${chars_clean.char}=${one_thru_70_summary.char} ;;
-#     sql_where: ${one_thru_70_summary.char} is not null ;;
-#   }
-#   fields: [ALL_FIELDS*]
 }
 
 explore: char_facts {
@@ -44,9 +29,6 @@ explore: char_facts {
   }
 }
 
-# explore: locations {}
-#
-# explore: zones {}
 
 explore: hourly_activity_clean {
   label: "All Characters: Hourly Summary"
