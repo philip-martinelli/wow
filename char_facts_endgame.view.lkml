@@ -52,6 +52,24 @@ derived_table: {
     sql: ${TABLE}.end_game_avg_days_active_per_week ;;
   }
 
+  dimension: avg_days_active_per_week_tiered {
+    type: tier
+    sql: ${avg_days_active_per_week} ;;
+    tiers: [0,1,2,3,4,5,6,7]
+    style: interval
+  }
+
+  dimension: avg_minutes_per_active_day {
+    type: number
+    sql: ${total_minutes}/${total_days_active} ;;
+  }
+
+  dimension: avg_minutes_per_active_day_tiered {
+    type: tier
+    sql: ${total_minutes}/${total_days_active} ;;
+    tiers: [0,45,90,135,180,225,270,315]
+  }
+
   dimension: avg_minutes_per_week  {
     type: number
     sql: ${TABLE}.end_game_avg_minutes_per_week ;;

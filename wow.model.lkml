@@ -53,6 +53,18 @@ explore: daily_activity_for_lvl_70 {
     sql_on: ${chars_clean.char} = ${daily_activity_for_lvl_70.char} ;;
     fields: [chars_clean._charclass,chars_clean._race,chars_clean.new_player,chars_clean.new_player_lvl_70]
   }
+  sql_always_where: ${chars_clean.char} not in (SELECT
+                                                  char
+                                                FROM (
+                                                SELECT
+                                                  char
+                                                  ,SUM(minutes) as minutes
+                                                  ,SUM(session) as sessions
+                                                  ,SUM(days_active) as days_active
+                                                FROM wow.daily_activity_for_lvl_70
+                                                GROUP BY 1
+                                                HAVING minutes <= 180
+                                                )s) ;;
 }
 
 explore: master {
