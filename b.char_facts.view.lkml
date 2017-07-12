@@ -105,10 +105,34 @@ view: char_facts {
     sql: DATE(${TABLE}.first_active) ;;
   }
 
+  dimension: avg_minutes_per_active_day_tiered {
+    type: tier
+    sql: ${total_minutes}/${total_days_active} ;;
+    tiers: [0,45,90,135,180,225,270,315]
+  }
+
   measure: count {
     type: count
   }
 
+  measure: average_days_active_per_week {
+    type: average
+    sql: ${avg_days_active_per_week} ;;
+  }
 
+  measure: average_total_days_active {
+    type: average
+    sql: ${total_days_active} ;;
+  }
+
+  measure: average_total_minutes {
+    type: average
+    sql: ${total_minutes} ;;
+  }
+
+  measure: average_sessions {
+    type: average
+    sql: ${total_sessions} ;;
+  }
 
 }

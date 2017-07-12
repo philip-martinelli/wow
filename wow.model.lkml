@@ -119,3 +119,4 @@ explore: char_facts_endgame {
     fields: [chars_clean._charclass,chars_clean._race]
   }
 }
+  # explore: j_leveling_funnel {}
