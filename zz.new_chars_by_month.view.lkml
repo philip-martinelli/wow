@@ -72,6 +72,7 @@ view: zz_new_chars_by_month {
   dimension: month {
     type: date_month_num
     sql: ${TABLE}.month ;;
+    convert_tz: no
   }
 
   dimension: new_chars {

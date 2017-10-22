@@ -32,6 +32,7 @@ view_label: "Weekly Activity"
   dimension: week {
     type: date_week
     sql: ${TABLE}.week ;;
+    convert_tz: no
   }
 
   measure: count {
