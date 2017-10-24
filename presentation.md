@@ -16,7 +16,7 @@
 - Do characters that reach the endgame keep up their leveling behavior? If not, what changes?
 
 #### Show us something from your model. Maybe an interesting model structure or a tricky join.
-- How I sessionized the timestamp data: https://dcl.dev.looker.com/projects/wow_thesis/files/zz.master_activity_levelers_only_ENDGAME.view.lkml
+- How I sessionized the timestamp data [here](https://dcl.dev.looker.com/projects/wow_thesis/files/zz.master_activity_levelers_only_ENDGAME.view.lkml)
 
 #### Highlight something you learned.
 - I do indeed have a life.
