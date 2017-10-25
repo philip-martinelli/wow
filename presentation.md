@@ -40,6 +40,7 @@
 
 
 #### A little about the data itself
+- It only includes information about the Horde faction of players from a single game server during 2008.
 - For as long as a character was being played, timestamps were logged in increments between 5 - 30 minutes.
 - There was no concept of session, so I had to sessionize the data using a window function partiotining the data by character/timestamp and marking a new session after a difference between timestamps exceeded 30 minutes.
 - The date format was messed up and I couldn't fix it during BQ import, so I used a little python script to loop through the 10,000,000 row csv file and change the format into 'yyyy-mm-dd hh:mm:ss' format.
