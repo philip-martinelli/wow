@@ -21,6 +21,18 @@ view: daily_activity_for_lvl_70 {
     timeframes: [date,week,month,month_name]
   }
 
+  dimension: days_ordered {
+    type: string
+    sql: CASE WHEN ${day_of_week} = 'Monday' THEN 1
+    WHEN ${day_of_week} = 'Tuesday' THEN 2
+    WHEN ${day_of_week} = 'Wednesday' THEN 3
+    WHEN ${day_of_week} = 'Thursday' THEN 4
+    WHEN ${day_of_week} = 'Friday' THEN 5
+    WHEN ${day_of_week} = 'Saturday' THEN 6
+    WHEN ${day_of_week} = 'Sunday' THEN 7
+    ELSE 8 END ;;
+  }
+
   dimension: day_of_week {
     type: string
     sql: ${TABLE}.day_of_week ;;
@@ -48,6 +60,11 @@ view: daily_activity_for_lvl_70 {
 
   measure: count {
     type: count
+  }
+
+  measure: avg_days_active {
+    type: average
+    sql: ${days_active} ;;
   }
 
   measure: avg_minutes {

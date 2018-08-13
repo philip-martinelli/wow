@@ -1,6 +1,6 @@
 view: chars_clean {
   view_label: "Characters"
-  sql_table_name: wow.chars_clean ;;
+#   sql_table_name: wow.chars_clean ;;
 
   dimension: char {
     label: "Character"
@@ -25,6 +25,7 @@ view: chars_clean {
     label: "Class"
     type: string
     sql: ${TABLE}._charclass ;;
+    drill_fields: [master_clean_lvl_70._level, master_clean_lvl_70._guild]
   }
 
   dimension: _race {
@@ -33,6 +34,11 @@ view: chars_clean {
     sql: ${TABLE}._race ;;
   }
 
+  dimension: _zone {
+    label: "Zone"
+    type: string
+    sql: ${master_clean_lvl_70._zone} ;;
+  }
 
   measure: count {
     label: "Count"

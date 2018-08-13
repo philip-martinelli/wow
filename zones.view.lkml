@@ -54,6 +54,7 @@ view: zones {
   dimension: type {
     type: string
     sql: ${TABLE}.Type ;;
+    drill_fields: [zone, subzone]
   }
 
   dimension: zone {

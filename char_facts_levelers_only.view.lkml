@@ -113,11 +113,13 @@ view: one_thru_70_summary {
   dimension: avg_minutes_per_week  {
     type: number
     sql: ${TABLE}.avg_minutes_per_week ;;
+    value_format: "###.00"
   }
 
   measure: avg_minutes {
     type: average
     sql:  ${total_minutes};;
+    value_format: "###.00"
   }
 
   measure: avg_sessions {
@@ -128,6 +130,7 @@ view: one_thru_70_summary {
   measure: avg_days_active {
     type: average
     sql: ${total_days_active} ;;
+    value_format: "###.00"
   }
 
   measure: total_avg_days_active_per_week {

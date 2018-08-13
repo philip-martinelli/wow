@@ -55,11 +55,13 @@ view_label: "Daily Activity"
   measure: avg_minutes {
     type: average
     sql: ${minutes} ;;
+    value_format: "###.00"
   }
 
   measure: avg_sessions {
     type: average
     sql: ${sessions} ;;
+    value_format: "###.00"
   }
 
   measure: sum_minutes {
@@ -84,6 +86,11 @@ view_label: "Daily Activity"
 
   measure: max_sessions {
     type: max
+    sql: ${sessions} ;;
+  }
+
+  measure: sum_sessions {
+    type: sum
     sql: ${sessions} ;;
   }
 

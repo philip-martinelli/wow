@@ -102,7 +102,7 @@ view: char_facts {
 
   dimension: first_active_day {
     type: date
-    sql: DATE(${TABLE}.first_active) ;;
+    sql: (${TABLE}.first_active) ;;
   }
 
   dimension: avg_minutes_per_active_day_tiered {
@@ -134,5 +134,7 @@ view: char_facts {
     type: average
     sql: ${total_sessions} ;;
   }
+
+measure: average_weeks_active {}
 
 }

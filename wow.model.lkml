@@ -1,7 +1,7 @@
 connection: "bq_test_db"
 
 include: "*.view.lkml"         # include all views in this project
-include: "*.dashboard.lookml"  # include all dashboards in this project
+#include: "*.dashboard.lookml"  # include all dashboards in this project
 
 datagroup: default {
   max_cache_age: "72 hours"
@@ -18,6 +18,14 @@ explore: daily_activity_clean {
 
 explore: chars_clean {
   label: "All Characters: Characters"
+  join: daily_activity_clean {
+    sql_on: ${chars_clean.char} = ${daily_activity_clean.char} ;;
+    relationship: many_to_one
+  }
+  join: master_clean_lvl_70 {
+    sql_on: ${master_clean_lvl_70.char} = ${chars_clean.char} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: char_facts {
@@ -116,7 +124,11 @@ explore: char_facts_endgame {
   join: chars_clean {
     relationship: one_to_one
     sql_on: ${chars_clean.char} = ${char_facts_endgame.char} ;;
-    fields: [chars_clean._charclass,chars_clean._race]
+#     fields: [chars_clean._charclass,chars_clean._race]
+  }
+  join: master_clean_lvl_70 {
+    relationship: many_to_one
+    sql_on: ${master_clean_lvl_70.char} = ${char_facts_endgame.char} ;;
   }
 }
   # explore: j_leveling_funnel {}
