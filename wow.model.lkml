@@ -52,6 +52,10 @@ explore: weekly_summary_dist {
 
 explore: daily_activity_dist {
   label: "All Characters: Daily Summary - Distribution"
+  join: master_clean_lvl_70 {
+    sql_on: ${master_clean_lvl_70.char} = ${daily_activity_dist.char} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: daily_activity_for_lvl_70 {

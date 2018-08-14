@@ -16,6 +16,7 @@ view_label: "Daily Activity"
   dimension: minutes {
     type: number
     sql: ${TABLE}.minutes ;;
+    value_format: "000.##"
   }
 
   dimension: tiered_minutes {
