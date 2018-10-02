@@ -15,6 +15,7 @@ view: char_facts {
           ,c.avg_days_active_per_week
           ,c.avg_minutes_per_week
           ,(SELECT min(b._timestamp) FROM wow.master_clean b WHERE a.char = b.char) as first_active
+          ,(SELECT MAX(b._timestamp) FROM wow.master_clean b WHERE a.char = b.char) AS last_active
         FROM wow.chars_clean a
         JOIN (
               SELECT
@@ -102,13 +103,18 @@ view: char_facts {
 
   dimension: first_active_day {
     type: date
-    sql: (${TABLE}.first_active) ;;
+    sql: ${TABLE}.first_active ;;
   }
 
   dimension: avg_minutes_per_active_day_tiered {
     type: tier
     sql: ${total_minutes}/${total_days_active} ;;
     tiers: [0,45,90,135,180,225,270,315]
+  }
+
+  dimension: last_active_day {
+    type: date
+    sql: ${TABLE}.last_active ;;
   }
 
   measure: count {

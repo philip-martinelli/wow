@@ -41,6 +41,11 @@ view: master_clean_lvl_70 {
     sql: ${TABLE}._timestamp ;;
   }
 
+  dimension: day_of_the_week {
+    type: date_day_of_week
+    sql: ${TABLE}._timestamp ;;
+  }
+
   dimension: _zone {
     type: string
     sql: ${TABLE}._zone ;;

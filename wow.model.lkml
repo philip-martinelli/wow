@@ -12,7 +12,11 @@ explore: daily_activity_clean {
   join: chars_clean {
     sql_on: ${chars_clean.char} = ${daily_activity_clean.char} ;;
     relationship: many_to_one
-    fields: [chars_clean._charclass,chars_clean._race,chars_clean.new_player,chars_clean.new_player_lvl_70]
+    fields: [chars_clean._charclass,chars_clean._race,chars_clean.new_player,chars_clean.new_player_lvl_70,chars_clean.char]
+  }
+  join: master_clean_lvl_70 {
+    sql_on: ${daily_activity_clean.char} = ${master_clean_lvl_70.char} ;;
+    relationship: many_to_one
   }
 }
 
@@ -35,6 +39,10 @@ explore: char_facts {
     sql_on: ${chars_clean.char} = ${char_facts.char} ;;
     fields: [chars_clean._charclass,chars_clean._race,chars_clean.new_player,chars_clean.new_player_lvl_70]
   }
+  join: master_clean_lvl_70 {
+    relationship: many_to_one
+    sql_on: ${master_clean_lvl_70.char} = ${char_facts.char} ;;
+  }
 }
 
 
@@ -54,6 +62,10 @@ explore: daily_activity_dist {
   label: "All Characters: Daily Summary - Distribution"
   join: master_clean_lvl_70 {
     sql_on: ${master_clean_lvl_70.char} = ${daily_activity_dist.char} ;;
+    relationship: many_to_one
+  }
+  join: chars_clean {
+    sql_on: ${chars_clean.char} = ${daily_activity_dist.char} ;;
     relationship: many_to_one
   }
 }
@@ -134,5 +146,8 @@ explore: char_facts_endgame {
     relationship: many_to_one
     sql_on: ${master_clean_lvl_70.char} = ${char_facts_endgame.char} ;;
   }
+}
+explore: master_clean {
+  label: "Master Clean"
 }
   # explore: j_leveling_funnel {}

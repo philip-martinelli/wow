@@ -23,7 +23,7 @@ view: n_master_activity_levelers_only_endgame {
                       ON a.char = b.char
                       Order by 1,5
                       )s
-                WHERE (_timestamp >= first_lvl_70 and _timestamp <= last_lvl_70)
+                WHERE (_timestamp BETWEEN first_lvl_70 AND last_lvl_70)
                       and not (char = 4629 and _timestamp = "2008-03-03 23:38:06 UTC")
                       and (char not in (SELECT
                                 char

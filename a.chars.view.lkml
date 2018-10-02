@@ -21,6 +21,12 @@ view: chars_clean {
     sql: CASE WHEN EXISTS (SELECT * FROM wow.new_chars_lvl_70 b WHERE b.char = ${char}) THEN 'Yes' else 'No' END;;
   }
 
+  dimension: existing_player_lvl_70 {
+    label: "Existing Player Reached level 70?"
+    type: string
+    sql: CASE WHEN EXISTS (SELECT _level FROM wow.master_clean_lvl_70 a WHERE a.char = ${char}) THEN 'Yes' else 'No' END ;;
+  }
+
   dimension: _charclass {
     label: "Class"
     type: string

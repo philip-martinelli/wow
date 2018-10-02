@@ -21,14 +21,21 @@ view_label: "Daily Activity"
 
   dimension: tiered_minutes {
     type: string
-    sql: CASE WHEN ${minutes} < 30 THEN '< 30 minutes'
+    sql: CASE
         WHEN ${minutes}  < 60 THEN '< 60 minutes'
-        WHEN ${minutes}  < 90 THEN '< 90 minutes'
         WHEN ${minutes} < 120 THEN '< 120 minutes'
         WHEN ${minutes} < 180 THEN '< 180 minutes'
-        else "180+" END
+        WHEN ${minutes} < 240 THEN '< 240 minutes'
+        WHEN ${minutes} < 300 THEN '< 300 minutes'
+        WHEN ${minutes} < 360 THEN '< 360 minutes'
+        else "360+" END
         ;;
   }
+#
+#   WHEN ${minutes} < 30 THEN '< 30 minutes'
+#
+#         WHEN ${minutes}  < 90 THEN '< 90 minutes'
+#
 
   dimension: tiered_minutes_sort {
     type: number
@@ -37,7 +44,10 @@ view_label: "Daily Activity"
         WHEN ${tiered_minutes} = '< 90 minutes' THEN 3
         WHEN ${tiered_minutes} = '< 120 minutes' THEN 4
         WHEN ${tiered_minutes} = '< 180 minutes' THEN 5
-        else 6 END;;
+        WHEN ${tiered_minutes} = '< 240 minutes' THEN 6
+        WHEN ${tiered_minutes} = '< 300 minutes' THEN 7
+        WHEN ${tiered_minutes} = '< 360 minutes' THEN 8
+        else 9 END;;
   }
 
   measure: count {
